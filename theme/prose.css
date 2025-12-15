@@ -1,0 +1,16 @@
+@import url("tokens.css") layer(desy-theme.tokens);
+@import url("fonts.css");
+
+@layer desy-theme {
+  /* These are optional defaults, not replacements for the public Prose overrides. */
+  .prose {
+    --_desy-prose-font-family: var(--desy-font-serif);
+    --_desy-prose-font-mono: var(--desy-font-mono);
+    --_desy-prose-color: var(--desy-color-text);
+    --_desy-prose-link-color: var(--desy-color-accent);
+    --_desy-prose-focus-color: var(--desy-color-focus);
+    --_desy-prose-muted-color: var(--desy-color-muted);
+    --_desy-prose-rule-color: var(--desy-color-border);
+    --_desy-prose-code-background: var(--desy-color-code-background);
+  }
+}

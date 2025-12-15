@@ -1,0 +1,14 @@
+:root {
+  --desy-color-background: #f5f3ed;
+  --desy-color-text: #172b3a;
+  --desy-color-muted: #52636c;
+  --desy-color-accent: #096b68;
+  --desy-color-focus: #096b68;
+  --desy-color-border: #a6b4b1;
+  --desy-color-code-background: #e7ece8;
+
+  --desy-font-sans: "Source Sans 3", system-ui, sans-serif;
+  --desy-font-serif: "Source Serif 4", Georgia, serif;
+  --desy-font-mono: "Source Code Pro", ui-monospace, monospace;
+}
+

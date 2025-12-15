@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme-mode="shared">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prose — shared theme comparison</title>
+  <link rel="stylesheet" href="../css/prose.css" id="prose-stylesheet">
+  <link rel="stylesheet" href="../theme/prose.css" id="shared-theme">
+  <link rel="stylesheet" href="theme-lab.css">
+  <script src="theme-lab.js" defer></script>
+</head>
+<body>
+  <header class="theme-header">
+    <a href="index.html">Prose laboratory</a>
+    <h1>One text, three starting points.</h1>
+    <p>Compare standalone defaults, shared colors and fonts, and explicit host overrides.</p>
+    <div data-theme-controls hidden>
+      <label for="theme-mode">Appearance</label>
+      <select id="theme-mode">
+        <option value="shared" selected>Shared theme</option>
+        <option value="default">Standalone defaults</option>
+        <option value="overrides">Shared theme with host overrides</option>
+      </select>
+      <p id="theme-status" role="status">Shared colors and Source fonts are active.</p>
+    </div>
+    <noscript><p>The shared-theme specimen is available without JavaScript. The <a href="standalone.html">standalone page</a> shows the original defaults.</p></noscript>
+  </header>
+  <main class="theme-example">
+    <article class="prose" data-paragraphs="space" lang="de">
+      <h1>Ein Text darf seinen Ton behalten.</h1>
+      <p>Ein gemeinsamer Farbklang verbindet eine Seite. Die Typografie hat dabei ihre eigene Aufgabe: einen Gedanken verständlich zu machen und dem nächsten genügend Raum zu geben.</p>
+      <p>Die <strong>kräftige Betonung</strong> und die <em>kursive Stimme</em> bleiben Teil des Texts. Schriftgröße, Zeilenhöhe und Absatzform lassen sich unabhängig von den gemeinsamen Farben und Schriftfamilien anpassen.</p>
+      <h2>Ein gemeinsamer Ausgangspunkt</h2>
+      <p>Hier stehen <a href="#theme-note">Links und Hinweise</a> im gleichen Farbklang wie die Oberfläche. Auch die Zeichen ÄÖÜ äöü ß ẞ und die Ziffern 0123456789 gehören zur Schriftprobe.</p>
+      <figure id="theme-note">
+        <blockquote><p>Ein guter Ausgangspunkt lässt Platz für die eigene Entscheidung.</p></blockquote>
+        <figcaption>A caption demonstrates the secondary text color.</figcaption>
+      </figure>
+      <pre tabindex="0" aria-label="Theme usage"><code>font-family: var(--prose-font-family);</code></pre>
+      <hr>
+      <p>Ohne das zusätzliche Theme bleiben die ursprünglichen Vorgaben erhalten. Eigene öffentliche Variablen haben weiterhin Vorrang.</p>
+    </article>
+  </main>
+</body>
+</html>

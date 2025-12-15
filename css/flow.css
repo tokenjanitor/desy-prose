@@ -1,0 +1,58 @@
+.prose {
+  /* Flow belongs to relationships between content blocks. Keep these rules after
+     the element defaults so headings and first children receive their exceptions. */
+  & :where(
+    p, ul, ol, dl, blockquote, figure, pre, table, hr, address,
+    section, aside, div
+  ) + :where(
+    p, ul, ol, dl, blockquote, figure, pre, table, hr, address,
+    section, aside, div
+  ):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin-block-start: var(--prose-flow-space, 1em);
+  }
+
+  /* Only adjacent paragraphs indent; opening paragraphs stay flush. */
+  & :where(p + p):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin-block-start: var(--_paragraph-space);
+    text-indent: var(--_paragraph-indent);
+  }
+
+  & :where(h1, h2, h3, h4, h5, h6) + :where(
+    p, ul, ol, dl, blockquote, figure, pre, table, address, section, aside, div
+  ):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin-block-start: var(--prose-after-heading-space, 0.65em);
+  }
+
+  & :where(h1, h2, h3, h4, h5) + :where(
+    h2, h3, h4, h5, h6
+  ):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin-block-start: var(--prose-after-heading-space, 0.65em);
+  }
+
+  & :where(li + li, li > ul, li > ol):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin-block-start: var(--prose-list-space, 0.35em);
+  }
+
+  & :where(dd + dt):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin-block-start: var(--prose-definition-space, 0.75em);
+  }
+
+  & :where(blockquote > p + p):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    text-indent: 0;
+    margin-block-start: var(--prose-quote-paragraph-space, 0.65em);
+  }
+
+  & :where(hr):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin-block: var(--prose-rule-space, 1.5em);
+  }
+
+  & :where(address p + p):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    text-indent: 0;
+    margin-block-start: 0;
+  }
+
+  /* The host owns the region's outer spacing, including an opening separator. */
+  & > :where(:first-child):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin-block-start: 0;
+  }
+}

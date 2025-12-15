@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prose ohne Astro und JavaScript</title>
+    <link rel="stylesheet" href="../css/prose.css" />
+    <style>
+      body { margin: var(--example-page-gutter, 1.25rem); }
+      main { margin: var(--example-content-space, 3rem) auto; }
+    </style>
+  </head>
+  <body>
+    <header><a href="./index.html">Zurück zum Labor</a><p id="outside-prose">Dieser Bereich verwendet die unveränderten Browserdefaults.</p></header>
+    <main class="prose" data-paragraphs="space">
+      <h1>Ein Stylesheet. Ein Lesetext.</h1>
+      <p>Diese Seite enthält einfaches HTML und das gleiche Prose-Stylesheet wie das Labor. Sie benötigt weder Astro-Komponenten noch JavaScript oder einen zusätzlichen Reset.</p>
+      <p>Das CSS gestaltet ausschließlich den markierten Textbereich. Schriftgröße, Satzbreite, Zeilenhöhe und Farben lassen sich über Custom Properties anpassen.</p>
+      <h2>Die Form folgt dem Text</h2>
+      <p>Ein Absatz nach einer Überschrift beginnt bündig. Listen und Zitate gliedern den Inhalt, ohne eine Klasse an jedem einzelnen Element zu verlangen.</p>
+      <ul><li>Semantisches HTML.</li><li>Native CSS-Regeln.</li><li>Ein dokumentierter Satz an Variablen.</li></ul>
+      <blockquote><p>Ein Beispielzitat zeigt einen weiteren Übergang im Textfluss.</p></blockquote>
+      <pre tabindex="0" aria-label="Beispiel einer lokalen Anpassung"><code>.prose {
+  --prose-measure: 60ch;
+  --prose-line-height: 1.7;
+}</code></pre>
+      <h2>Eine kleine Tabelle</h2>
+      <table><thead><tr><th scope="col">Eigenschaft</th><th scope="col">Beispiel</th></tr></thead><tbody><tr><th scope="row">Satzbreite</th><td>60 ch</td></tr><tr><th scope="row">Zeilenhöhe</th><td>1,70</td></tr></tbody></table>
+    </main>
+  </body>
+</html>

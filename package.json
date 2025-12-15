@@ -1,0 +1,24 @@
+{
+  "name": "desy-prose",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Standalone reading typography in native CSS.",
+  "private": true,
+  "engines": {
+    "node": ">=24.12.0 <25"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.browser.json --noEmit",
+    "build:lab": "npm run typecheck && tsc -p tsconfig.browser.json",
+    "check:generated": "npm run typecheck && node scripts/check-generated.ts",
+    "check": "npm run check:generated",
+    "dev": "npm run build:lab && node scripts/serve.ts",
+    "test": "npm run check && playwright test --project=chromium --project=webkit",
+    "test:all": "npm run check && playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.57.0",
+    "@types/node": "24.10.4",
+    "typescript": "5.9.3"
+  }
+}

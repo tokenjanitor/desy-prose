@@ -1,0 +1,43 @@
+.prose {
+  /* Initial size defaults stay local to Prose. Heading levels use a 1.2 scale.
+     Public overrides are read at each element, so host inheritance stays intact. */
+  --_size-h1: 2.0736em;
+  --_size-h2: 1.728em;
+  --_size-h3: 1.44em;
+  --_size-h4: 1.2em;
+  --_size-h5: 1em;
+  --_size-h6: 1em;
+  --_size-small: 0.875em;
+  --_size-code: 0.875em;
+  --_size-table: 0.9em;
+
+  --_paragraph-space: var(--prose-paragraph-space, 0);
+  --_paragraph-indent: var(--prose-paragraph-indent, 1em);
+
+  box-sizing: border-box;
+  max-inline-size: var(--prose-measure, 65ch);
+  color: var(--prose-color, var(--_desy-prose-color, #252a32));
+  font-family: var(--prose-font-family, var(--_desy-prose-font-family, system-ui, sans-serif));
+  font-size: var(--prose-font-size, clamp(1rem, 0.9rem + 0.45vi, 1.25rem));
+  font-weight: var(--prose-font-weight, 400);
+  line-height: var(--prose-line-height, 1.6);
+  font-kerning: var(--prose-kerning, normal);
+  font-optical-sizing: var(--prose-optical-sizing, auto);
+  font-variant-ligatures: var(--prose-ligatures, common-ligatures contextual);
+  font-variant-numeric: var(--prose-numerals, oldstyle-nums proportional-nums);
+  overflow-wrap: anywhere;
+  text-align: start;
+
+  /* Embedded UI keeps its element rules, while ordinary inheritance still applies.
+     Keep this zero-specificity exclusion on every descendant rule. */
+  & :where(*):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    box-sizing: border-box;
+  }
+
+  & :where(
+    h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd,
+    blockquote, figure, pre, table, hr, address
+  ):not(:where([data-prose-ui], [data-prose-ui] *)) {
+    margin: 0;
+  }
+}

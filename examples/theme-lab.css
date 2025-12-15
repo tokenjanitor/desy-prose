@@ -1,0 +1,45 @@
+body {
+  max-inline-size: var(--theme-page-measure, 74rem);
+  margin: 0 auto;
+  padding: var(--theme-page-padding, clamp(1rem, 4vw, 3rem));
+  background: var(--theme-page-background, #fff);
+  color: var(--theme-page-color, #252a32);
+  font: var(--theme-page-size, 1rem)/var(--theme-page-line-height, 1.5) system-ui, sans-serif;
+  font-family: var(--desy-font-sans, system-ui, sans-serif);
+  overflow-wrap: anywhere;
+}
+
+html[data-theme-mode="shared"] body,
+html[data-theme-mode="overrides"] body {
+  background: var(--desy-color-background, #fff);
+}
+
+.theme-header {
+  max-inline-size: var(--theme-header-measure, 58ch);
+  margin-block-end: var(--theme-header-space, 3rem);
+}
+
+.theme-header h1 {
+  font-size: var(--theme-heading-size, clamp(2rem, 4vw, 3.25rem));
+  line-height: var(--theme-heading-line-height, 1.15);
+}
+
+.theme-header select {
+  max-inline-size: 100%;
+  font: inherit;
+}
+
+.theme-header a {
+  color: var(--desy-color-accent, #184db5);
+}
+
+html[data-theme-mode="overrides"] .theme-example {
+  --prose-font-family: Georgia, serif;
+  --prose-color: #523b64;
+  --prose-link-color: #523b64;
+  --prose-focus-color: #523b64;
+}
+
+[hidden] {
+  display: none !important;
+}

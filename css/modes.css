@@ -1,0 +1,15 @@
+.prose[data-paragraphs="space"],
+.prose-block {
+  --_paragraph-space: var(--prose-paragraph-space, 1em);
+  --_paragraph-indent: 0;
+}
+
+.prose[data-alignment="justify"] :where(p):not(:where([data-prose-ui], [data-prose-ui] *)) {
+  text-align: justify;
+}
+
+.prose[data-alignment="justify"] :where(
+  blockquote p, address p
+):not(:where([data-prose-ui], [data-prose-ui] *)) {
+  text-align: start;
+}

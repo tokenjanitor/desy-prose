@@ -1,0 +1,23 @@
+.travel-table {
+  min-inline-size: var(--travel-table-min, 52rem);
+  overflow-wrap: normal;
+}
+
+.travel-table :where(th, .travel-value) {
+  white-space: nowrap;
+}
+
+.travel-table td:last-child {
+  min-inline-size: var(--travel-description-min, 22ch);
+  hyphens: auto;
+}
+
+.controls-disclosure > summary {
+  min-block-size: var(--travel-disclosure-min-height, 2.75rem);
+  padding-block: var(--travel-disclosure-padding, 0.5rem);
+  cursor: pointer;
+}
+
+.controls-disclosure > summary h2 {
+  display: inline;
+}

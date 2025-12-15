@@ -1,0 +1,424 @@
+:root {
+  --lab-blue: #174fc7;
+  --lab-line: #d9e0e9;
+  --lab-text: #243044;
+  --lab-muted: #5c687a;
+  --lab-background: #f1f4f8;
+  --lab-surface: #fff;
+  --lab-selected-background: #eaf0ff;
+  --lab-selected-color: #1244a8;
+  --lab-control-border: #b7c3d4;
+  --lab-output-color: #174594;
+  --lab-demo-background: #edf2fb;
+  --lab-page-measure: 96rem;
+  --lab-page-gutter: clamp(1rem, 4vi, 4rem);
+  --lab-rule-width: 1px;
+  --lab-control-radius: 0.25rem;
+  --lab-control-size: 0.875rem;
+
+  font-family: var(--lab-font-family, system-ui, sans-serif);
+  color: var(--lab-text);
+  background: var(--lab-background);
+  font-synthesis: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select,
+input[type="range"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+button,
+select {
+  color: inherit;
+}
+
+a {
+  color: var(--lab-blue);
+}
+
+:focus-visible {
+  outline: var(--lab-focus-width, 3px) solid var(--lab-blue);
+  outline-offset: var(--lab-focus-offset, 4px);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.skip-link {
+  position: absolute;
+  inset-block-start: var(--lab-skip-hidden-offset, -5rem);
+  inset-inline-start: var(--lab-skip-offset, 1rem);
+  z-index: var(--lab-skip-layer, 5);
+  padding: var(--lab-skip-padding, 0.75rem);
+  background: var(--lab-surface);
+}
+
+.skip-link:focus {
+  inset-block-start: var(--lab-skip-offset, 1rem);
+}
+
+.lab-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lab-header-gap, 1rem);
+  padding: var(--lab-header-padding, 1.25rem) var(--lab-page-gutter);
+  border-block-end: var(--lab-rule-width) solid var(--lab-line);
+  background: var(--lab-surface);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: var(--lab-brand-gap, 0.8rem);
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand strong {
+  color: var(--lab-blue);
+  font-size: var(--lab-brand-size, 1.6rem);
+  letter-spacing: var(--lab-brand-tracking, -0.07em);
+}
+
+.brand span {
+  font-size: var(--lab-brand-caption-size, 0.875rem);
+  color: var(--lab-muted);
+}
+
+.header-link {
+  font-size: var(--lab-header-link-size, 0.875rem);
+  text-underline-offset: var(--lab-header-link-underline-offset, 0.25em);
+}
+
+.lab-intro {
+  overflow-wrap: anywhere;
+  max-inline-size: var(--lab-page-measure);
+  margin-inline: auto;
+  padding: var(--lab-intro-padding-start, 2rem) var(--lab-page-gutter) var(--lab-intro-padding-end, 1.5rem);
+}
+
+.lab-intro h1 {
+  margin: 0 0 var(--lab-intro-heading-space, 0.5rem);
+  font-size: var(--lab-intro-heading-size, clamp(1.75rem, 1.3rem + 1.5vi, 2.5rem));
+  font-weight: var(--lab-intro-heading-weight, 500);
+  letter-spacing: var(--lab-intro-heading-tracking, -0.04em);
+}
+
+.lab-intro p {
+  max-inline-size: var(--lab-intro-measure, 65ch);
+  margin: 0;
+  color: var(--lab-intro-color, #526075);
+  font-size: var(--lab-intro-size, 0.95rem);
+  line-height: var(--lab-intro-line-height, 1.65);
+}
+
+.lab-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--lab-controls-width, 18rem);
+  align-items: start;
+  gap: var(--lab-workspace-gap, 1.25rem);
+  max-inline-size: var(--lab-page-measure);
+  margin-inline: auto;
+  padding: 0 var(--lab-page-gutter) var(--lab-workspace-padding-end, 3rem);
+}
+
+.specimen-area {
+  min-inline-size: 0;
+  background: var(--lab-surface);
+  border: var(--lab-rule-width) solid var(--lab-line);
+  border-radius: var(--lab-specimen-radius, 0.5rem);
+  overflow: clip;
+}
+
+.view-nav {
+  display: flex;
+  gap: var(--lab-view-nav-gap, 0.5rem);
+  flex-wrap: wrap;
+  padding: var(--lab-view-nav-padding, 0.9rem 1.25rem);
+  border-block-end: var(--lab-rule-width) solid var(--lab-line);
+}
+
+.view-nav button {
+  border: 0;
+  background: none;
+  border-radius: var(--lab-control-radius);
+  padding: var(--lab-view-link-padding, 0.55rem 0.8rem);
+  font-size: var(--lab-control-size);
+}
+
+.view-nav button[aria-selected="true"] {
+  background: var(--lab-selected-background);
+  color: var(--lab-selected-color);
+  font-weight: var(--lab-selected-weight, 600);
+}
+
+.view-nav a {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  align-self: center;
+  padding: var(--lab-view-link-padding, 0.55rem 0.8rem);
+  font-size: var(--lab-control-size);
+  text-underline-offset: var(--lab-view-link-underline-offset, 0.2em);
+}
+
+.view-nav a[aria-current="page"] {
+  background: var(--lab-selected-background);
+  color: var(--lab-selected-color);
+  border-radius: var(--lab-control-radius);
+  font-weight: var(--lab-selected-weight, 600);
+  text-decoration: none;
+}
+
+.specimen-canvas {
+  min-block-size: var(--lab-canvas-min-height, 70vi);
+  padding: var(--lab-canvas-padding, clamp(1.25rem, 3vi, 3.75rem));
+}
+
+.specimen-canvas > .prose,
+.specimen-canvas > [role="tabpanel"] > .prose {
+  margin-inline: auto;
+  min-inline-size: 0;
+}
+
+.specimen-note {
+  margin: 0;
+  padding: var(--lab-specimen-note-padding, 0.8rem 1.25rem);
+  border-block-start: var(--lab-rule-width) solid var(--lab-line);
+  font-size: var(--lab-specimen-note-size, 0.8rem);
+  color: var(--lab-muted);
+  line-height: var(--lab-specimen-note-line-height, 1.5);
+}
+
+.controls {
+  border-block-start: var(--lab-controls-rule-width, 3px) solid var(--lab-blue);
+  padding-block-start: var(--lab-controls-padding, 1rem);
+}
+
+.controls h2 {
+  font-size: var(--lab-controls-heading-size, 1.05rem);
+  margin: 0 0 var(--lab-controls-heading-space, 0.35rem);
+  font-weight: var(--lab-controls-heading-weight, 650);
+}
+
+.controls > p,
+.controls-disclosure > p {
+  margin: 0 0 var(--lab-controls-intro-space, 1.5rem);
+  color: var(--lab-muted);
+  font-size: var(--lab-controls-intro-size, 0.825rem);
+  line-height: var(--lab-controls-intro-line-height, 1.6);
+}
+
+.controls fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.controls legend {
+  margin-block-end: var(--lab-legend-space, 1rem);
+  font-size: var(--lab-label-size, 0.85rem);
+  font-weight: var(--lab-legend-weight, 650);
+}
+
+.control {
+  margin-block-end: var(--lab-control-space, 1.25rem);
+}
+
+.control > label,
+.control-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--lab-label-gap, 0.5rem);
+  margin-block-end: var(--lab-label-space, 0.5rem);
+  font-size: var(--lab-label-size, 0.85rem);
+}
+
+.control output {
+  color: var(--lab-output-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.control select {
+  inline-size: 100%;
+  background: var(--lab-surface);
+  border: var(--lab-rule-width) solid var(--lab-control-border);
+  border-radius: var(--lab-control-radius);
+  padding: var(--lab-select-padding, 0.65rem);
+  font-size: var(--lab-control-size);
+}
+
+.control input[type="range"] {
+  inline-size: 100%;
+  margin: 0;
+  accent-color: var(--lab-blue);
+}
+
+.control input:disabled {
+  cursor: default;
+  opacity: var(--lab-disabled-opacity, 0.4);
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: var(--lab-checkbox-gap, 0.5rem);
+  font-size: var(--lab-label-size, 0.85rem);
+  line-height: var(--lab-checkbox-line-height, 1.5);
+  margin-block-end: var(--lab-checkbox-space, 0.75rem);
+}
+
+.check-label input {
+  accent-color: var(--lab-blue);
+  inline-size: var(--lab-checkbox-size, 1rem);
+  block-size: var(--lab-checkbox-size, 1rem);
+}
+
+.control > .check-label {
+  justify-content: flex-start;
+}
+
+.reset-button {
+  inline-size: 100%;
+  background: var(--lab-surface);
+  border: var(--lab-rule-width) solid var(--lab-control-border);
+  border-radius: var(--lab-control-radius);
+  padding: var(--lab-reset-padding, 0.65rem 1rem);
+  font-size: var(--lab-control-size);
+}
+
+.reset-button:hover {
+  border-color: var(--lab-blue);
+  color: var(--lab-blue);
+}
+
+.render-metrics {
+  border-block-start: var(--lab-rule-width) solid var(--lab-line);
+  margin-block-start: var(--lab-metrics-space, 1.5rem);
+  padding-block-start: var(--lab-metrics-padding, 1rem);
+}
+
+.render-metrics dt {
+  color: var(--lab-muted);
+  font-size: var(--lab-metrics-label-size, 0.8rem);
+}
+
+.render-metrics dd {
+  margin: var(--lab-metrics-value-space, 0.25rem 0 0.75rem);
+  font-size: var(--lab-metrics-value-size, 0.875rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.lab-footer {
+  max-inline-size: var(--lab-page-measure);
+  margin-inline: auto;
+  padding: 0 var(--lab-page-gutter) var(--lab-footer-padding, 2.5rem);
+  color: var(--lab-muted);
+  font-size: var(--lab-footer-size, 0.825rem);
+  line-height: var(--lab-footer-line-height, 1.65);
+}
+
+.lab-footer p {
+  margin: 0 0 var(--lab-footer-paragraph-space, 0.5rem);
+}
+
+.demo-widget {
+  padding: var(--lab-widget-padding, 1rem);
+  border: var(--lab-rule-width) dashed var(--lab-widget-border, #8a99ae);
+  border-radius: var(--lab-widget-radius, 0.25rem);
+  font: var(--lab-widget-font, 400 0.9rem/1.5 system-ui, sans-serif);
+  color: var(--lab-text);
+}
+
+.demo-widget p {
+  margin: 0 0 var(--lab-widget-paragraph-space, 0.75rem);
+}
+
+.demo-widget button {
+  background: var(--lab-demo-background);
+  color: var(--lab-output-color);
+  border: var(--lab-rule-width) solid var(--lab-widget-button-border, #8fa8d4);
+  border-radius: var(--lab-widget-button-radius, 0.25rem);
+  padding: var(--lab-widget-button-padding, 0.4rem 0.6rem);
+}
+
+.figure-example {
+  display: grid;
+  place-items: center;
+  min-block-size: var(--lab-figure-min-height, 7rem);
+  background: var(--lab-demo-background);
+  color: var(--lab-output-color);
+  font-size: var(--lab-figure-size, 2.5em);
+}
+
+/* Native media conditions cannot read custom properties. These are shell reflow
+   thresholds, independent of the reading library's variable design values. */
+@media (min-width: 70rem) {
+  .controls {
+    position: sticky;
+    inset-block-start: var(--lab-controls-sticky-offset, 1.5rem);
+  }
+}
+
+@media (max-width: 55rem) {
+  .lab-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .controls {
+    grid-row: 1;
+  }
+
+  .controls fieldset {
+    display: grid;
+    grid-template-columns: repeat(var(--lab-control-columns, 2), minmax(0, 1fr));
+    gap: 0 var(--lab-control-column-gap, 1.5rem);
+  }
+
+  .controls legend {
+    grid-column: 1 / -1;
+  }
+
+  .control {
+    min-inline-size: 0;
+  }
+
+  .reset-button {
+    max-inline-size: var(--lab-reset-measure, 20rem);
+  }
+
+  .render-metrics {
+    display: none;
+  }
+}
+
+@media (max-width: 27rem) {
+  .brand span {
+    display: none;
+  }
+
+  .controls fieldset {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
